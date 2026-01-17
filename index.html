@@ -9,10 +9,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <script type="module" crossorigin src="./assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
-  <script type="module" crossorigin src="./assets/navbar-U3wnY3A6.js"></script>
+  <script type="module" crossorigin src="./assets/navbar-BzkUMurv.js"></script>
   <script type="module" crossorigin src="./assets/faqs-uSly5jdm.js"></script>
-  <script type="module" crossorigin src="./assets/landing-D9IuE1XA.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/navbar-ublcqAlP.css">
+  <script type="module" crossorigin src="./assets/landing-CwEp5hyJ.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/navbar-BFRWAA7C.css">
 </head>
 <body class="bg-[#FDFDFD] text-slate-900 font-sans selection:bg-emerald-600 selection:text-white antialiased">
   <!-- Background Blobs -->
@@ -205,15 +205,22 @@
             Pricing made for Everyone
           </p>
 
-          <!-- Toggle Switch -->
-          <div class="flex items-center justify-center gap-4 mb-12">
-            <span class="text-sm font-bold text-slate-500" id="monthly-label">Monthly</span>
-            <button id="billing-toggle" class="w-16 h-8 bg-emerald-600 rounded-full p-1 transition-colors duration-300 relative focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2" aria-checked="true" role="switch">
-              <div class="w-6 h-6 bg-white rounded-full shadow-md transform translate-x-8 transition-transform duration-300"></div>
-            </button>
-            <div class="flex items-center gap-2">
-              <span class="text-sm font-bold text-slate-900" id="yearly-label">Yearly</span>
-              <span class="text-[10px] font-black uppercase tracking-wider text-emerald-600 bg-emerald-100 px-2 py-0.5 rounded-full">Save 2 months</span>
+          <!-- Toggle Switch (Pill Style) -->
+          <div class="flex items-center justify-center mb-12">
+            <div class="bg-slate-100 p-1 rounded-full flex relative">
+              <!-- Active Background Pill (Animated) -->
+              <div id="active-bg" class="absolute top-1 bottom-1 w-[calc(50%-4px)] bg-white rounded-full shadow-sm transition-all duration-300 ease-out translate-x-full"></div>
+
+              <!-- Monthly Button -->
+              <button id="monthly-btn" class="relative z-10 px-8 py-2.5 rounded-full text-sm font-bold text-slate-500 transition-colors duration-300 w-48 focus:outline-none">
+                Monthly
+              </button>
+
+              <!-- Yearly Button -->
+              <button id="yearly-btn" class="relative z-10 px-8 py-2.5 rounded-full text-sm font-bold text-slate-900 transition-colors duration-300 w-48 focus:outline-none flex items-center justify-center gap-2">
+                Yearly
+                <span class="text-[10px] font-black uppercase tracking-wider text-white bg-blue-500 px-2 py-0.5 rounded-full">2 months free</span>
+              </button>
             </div>
           </div>
 
