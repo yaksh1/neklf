@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Kortex</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2 {
+            color: #24292e;
+            border-bottom: 1px solid #eaecef;
+            padding-bottom: 10px;
+        }
+        h1 {
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 1.5em;
+            margin-top: 30px;
+        }
+        p, li {
+            font-size: 1em;
+            color: #586069;
+        }
+        strong {
+            color: #24292e;
+        }
+        a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #6a737d;
+        }
+        code {
+            background-color: #f6f8fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.9em;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="./assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
+  <script type="module" crossorigin src="./assets/navbar-D8ea9d0Z.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/navbar-C0Vv_n5O.css">
+</head>
+<body>
+  <!-- Navbar will be injected by navbar.js -->
+  <div id="navbar-placeholder"></div>
+
+    <div class="container">
+        <h1>Privacy Policy for Kortex</h1>
+        <p><strong>Effective Date:</strong> <span id="effective-date">August 2025</span></p>
+
+        <p>Thank you for using Kortex. This privacy policy explains how our browser extension collects, uses, and protects your information.</p>
+
+        <h2>1. Information We Collect</h2>
+        <p>Kortex collects and stores the following types of information:</p>
+        
+        <h3>1.1 Account Information</h3>
+        <p>When you create an account, we collect:</p>
+        <ul>
+            <li><strong>Email Address:</strong> Used for account identification and communication</li>
+            <li><strong>Authentication Data:</strong> Managed by Firebase Authentication (Google OAuth or email/password authentication)</li>
+        </ul>
+
+        <h3>1.2 Usage and Subscription Data</h3>
+        <p>To provide subscription services and enforce usage limits, we track:</p>
+        <ul>
+            <li><strong>Subscription Tier:</strong> Your current plan (Basic, Lite, Pro, or Lifetime Pro)</li>
+            <li><strong>Usage Counts:</strong> Number of exports, imports, prompts created, and source views created</li>
+            <li><strong>Usage Reset Dates:</strong> Monthly reset dates for usage limits</li>
+            <li><strong>Feature Usage Tracking:</strong> General usage statistics for improving the service</li>
+        </ul>
+
+        <h3>1.3 Content Data</h3>
+        <p>To sync your data across devices, we store:</p>
+        <ul>
+            <li><strong>Saved Prompts:</strong> Prompts you save in the Prompt Holder feature</li>
+            <li><strong>Source Views:</strong> Custom source view configurations you create</li>
+        </ul>
+        <p><strong>Note:</strong> Your chat conversation content itself is not stored on our servers. Conversation data is only processed in memory during the transfer to your NotebookLM account and is not saved by Kortex.</p>
+
+        <h3>1.4 Payment Information</h3>
+        <p>When you purchase a subscription or prepaid credits:</p>
+        <ul>
+            <li><strong>Payment Customer ID:</strong> A reference ID from our payment processor (Dodo Payments) to manage your subscription</li>
+            <li><strong>Subscription Status:</strong> Your subscription tier and status</li>
+            <li><strong>Prepaid Credits Balance:</strong> Your current prepaid credits balance</li>
+        </ul>
+        <p><strong>Important:</strong> Kortex does not store credit card numbers or sensitive payment details. All payment processing is handled securely by Dodo Payments, our third-party payment processor.</p>
+
+        <h2>2. How We Use Your Information</h2>
+        <p>We use the information we collect to:</p>
+        <ul>
+            <li><strong>Provide Core Functionality:</strong> Transfer your chat conversations from AI platforms to your NotebookLM account</li>
+            <li><strong>Manage Subscriptions:</strong> Track your subscription tier and enforce usage limits based on your plan</li>
+            <li><strong>Sync Data Across Devices:</strong> Store your prompts and source views in the cloud so they're accessible from any device where you're signed in</li>
+            <li><strong>Process Payments:</strong> Manage subscription purchases, renewals, and cancellations through our payment processor</li>
+            <li><strong>Improve the Service:</strong> Use aggregated usage statistics to enhance Kortex features and performance</li>
+            <li><strong>Communicate with You:</strong> Send important service updates and respond to support inquiries</li>
+        </ul>
+
+        <h2>3. Data Storage and Location</h2>
+        <h3>3.1 Cloud Storage (Firestore)</h3>
+        <p>Your account data, usage information, and synced content (prompts and source views) are stored in Google Cloud Firestore, which is part of Firebase. This data is stored securely and is only accessible with your authentication credentials.</p>
+
+        <h3>3.2 Local Storage</h3>
+        <p>Some information is stored locally on your device using the browser's <code>chrome.storage</code> API:</p>
+        <ul>
+            <li>Authentication tokens for accessing NotebookLM</li>
+            <li>Extension settings and preferences</li>
+            <li>Temporary cache data for performance</li>
+        </ul>
+
+        <h3>3.3 Chat Conversation Data</h3>
+        <p>Your chat conversations are never stored by Kortex. They are processed in memory only during the transfer process from the AI platform (ChatGPT, Gemini, Claude, Perplexity) to your NotebookLM account. The conversation data goes directly from your browser to NotebookLM and is not intercepted or stored by our servers.</p>
+
+        <h2>4. Third-Party Services</h2>
+        <p>Kortex uses the following third-party services:</p>
+        <ul>
+            <li><strong>Firebase (Google Cloud):</strong> For user authentication, cloud database (Firestore), and backend functions. Firebase's privacy policy applies: <a href="https://firebase.google.com/support/privacy" target="_blank">https://firebase.google.com/support/privacy</a></li>
+            <li><strong>Dodo Payments:</strong> For processing subscription payments and managing payment information. Dodo Payments handles all sensitive payment data in accordance with PCI DSS standards.</li>
+            <li><strong>Google NotebookLM:</strong> The destination service where your chat conversations are transferred. Google's privacy policy applies to data stored in your NotebookLM account.</li>
+        </ul>
+
+        <h2>5. Data Sharing</h2>
+        <p>We do not sell, rent, or share your personal information with third parties except as described in this policy:</p>
+        <ul>
+            <li><strong>Service Providers:</strong> We share necessary information with Firebase and Dodo Payments to provide core functionality and payment processing</li>
+            <li><strong>Legal Requirements:</strong> We may disclose information if required by law or to protect our rights and the safety of our users</li>
+            <li><strong>Your NotebookLM Account:</strong> Chat conversation data you choose to export is transferred to your own Google NotebookLM account, which you control</li>
+        </ul>
+
+        <h2>6. Data Security</h2>
+        <p>We implement industry-standard security measures to protect your information:</p>
+        <ul>
+            <li>All data transmitted to our servers is encrypted using HTTPS/TLS</li>
+            <li>Firebase Authentication uses secure OAuth 2.0 protocols</li>
+            <li>Payment data is processed securely through PCI DSS-compliant payment processors</li>
+            <li>Access to user data is restricted to authenticated requests only</li>
+        </ul>
+        <p>However, no method of transmission over the Internet or electronic storage is 100% secure, and we cannot guarantee absolute security.</p>
+
+        <h2>7. Your Rights and Choices</h2>
+        <p>You have the right to:</p>
+        <ul>
+            <li><strong>Access Your Data:</strong> You can view your account information, usage statistics, and synced content through the extension interface</li>
+            <li><strong>Delete Your Account:</strong> You can request account deletion by contacting us at <a href="mailto:kortexnotebookLM@gmail.com">kortexnotebookLM@gmail.com</a>. This will delete your account data, but please note that subscription cancellations must be processed through the customer portal</li>
+            <li><strong>Manage Subscriptions:</strong> Cancel or modify your subscription at any time through the extension's "Manage Subscription" feature, which takes you to the Dodo Payments customer portal</li>
+            <li><strong>Export Your Data:</strong> You can export your saved prompts and source views at any time through the extension</li>
+        </ul>
+
+        <h2>8. Data Retention</h2>
+        <p>We retain your information for as long as your account is active or as needed to provide services to you. If you delete your account, we will delete or anonymize your personal information within 30 days, except where we are required to retain certain information for legal or regulatory purposes.</p>
+
+        <h2>9. Children's Privacy</h2>
+        <p>Kortex is not intended for users under the age of 13. We do not knowingly collect personal information from children under 13. If you believe we have collected information from a child under 13, please contact us immediately.</p>
+
+        <h2>10. Changes to This Privacy Policy</h2>
+        <p>We may update this privacy policy from time to time. We will notify you of any material changes by posting the new policy on this page and updating the "Effective Date" at the top. Your continued use of Kortex after any changes constitutes acceptance of the updated policy.</p>
+
+        <h2>11. Contact Us</h2>
+        <p>If you have any questions, concerns, or requests regarding this privacy policy or our data practices, please contact us at:</p>
+        <p><strong>Email:</strong> <a href="mailto:kortexnotebookLM@gmail.com">kortexnotebookLM@gmail.com</a></p>
+
+        <div class="footer">
+            <p>Developed by Yaksh Gandhi</p>
+            <p><a href="https://github.com/yaksh1/" target="_blank">GitHub</a> | <a href="https://www.linkedin.com/in/yakshgandhi/" target="_blank">LinkedIn</a></p>
+        </div>
+    </div>
+
+
+</body>
+</html>
+

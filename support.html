@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kortex Support - Get Help & Answers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="./assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
+  <script type="module" crossorigin src="./assets/navbar-D8ea9d0Z.js"></script>
+  <script type="module" crossorigin src="./assets/faqs-uSly5jdm.js"></script>
+  <script type="module" crossorigin src="./assets/landing-BsPznxiA.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/navbar-C0Vv_n5O.css">
+</head>
+<body class="bg-[#FDFDFD] text-slate-900 font-sans selection:bg-emerald-600 selection:text-white antialiased">
+  <!-- Background Blobs -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none" style="z-index: 0;">
+    <div class="absolute -top-[10%] -left-[10%] w-[55%] h-[55%] rounded-full bg-emerald-400/20 blur-[130px] animate-pulse"></div>
+    <div class="absolute top-[15%] -right-[5%] w-[40%] h-[40%] rounded-full bg-cyan-400/20 blur-[110px]"></div>
+    <div class="absolute -bottom-[15%] left-[20%] w-[50%] h-[50%] rounded-full bg-teal-300/15 blur-[140px]"></div>
+  </div>
+
+  <!-- Navbar will be injected by navbar.js -->
+  <div id="navbar-placeholder"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative" style="z-index: 10;">
+    <!-- Support Section -->
+    <section class="pt-40 pb-16 md:pt-48 md:pb-24">
+      <div class="text-center mb-16">
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-black mb-6 tracking-tight">
+          Kortex Support
+        </h1>
+        <p class="text-xl md:text-2xl text-slate-600 max-w-2xl mx-auto font-semibold">
+          Need help? We're here for you. Multiple ways to get in touch.
+        </p>
+      </div>
+
+      <!-- Support Options -->
+      <div class="grid md:grid-cols-3 gap-6 mb-20">
+        <!-- Read the docs card -->
+        <a href="#" id="open-docs-link" class="bg-white/80 backdrop-blur-md rounded-2xl border border-slate-200/60 hover:border-emerald-200/60 hover:shadow-lg hover:shadow-emerald-50/50 transition-all duration-300 p-8 group">
+          <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-black text-slate-900 mb-2 group-hover:text-emerald-600 transition-colors">Read the docs</h3>
+          <p class="text-slate-600 text-sm font-semibold leading-relaxed mb-4">Browse FAQs, guides, and tutorials for quick answers.</p>
+          <div class="inline-flex items-center gap-2 text-emerald-600 font-bold text-sm group-hover:gap-3 transition-all">
+            <span>Open Docs</span>
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </div>
+        </a>
+
+        <!-- Contact Support card -->
+        <a href="#" id="support-contact-link" class="bg-white/80 backdrop-blur-md rounded-2xl border border-slate-200/60 hover:border-emerald-200/60 hover:shadow-lg hover:shadow-emerald-50/50 transition-all duration-300 p-8 group">
+          <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-black text-slate-900 mb-2 group-hover:text-emerald-600 transition-colors">Contact Support</h3>
+          <p class="text-slate-600 text-sm font-semibold leading-relaxed mb-4">Submit a ticket to our support team for personalized help.</p>
+          <div class="inline-flex items-center gap-2 text-emerald-600 font-bold text-sm group-hover:gap-3 transition-all">
+            <span>Submit a ticket</span>
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </div>
+        </a>
+
+        <!-- Email Support card -->
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kortexnotebooklm@gmail.com" class="bg-white/80 backdrop-blur-md rounded-2xl border border-slate-200/60 hover:border-emerald-200/60 hover:shadow-lg hover:shadow-emerald-50/50 transition-all duration-300 p-8 group">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-black text-slate-900 mb-2 group-hover:text-emerald-600 transition-colors">Email Support</h3>
+          <p class="text-slate-600 text-sm font-semibold leading-relaxed mb-4">Send us an email directly for immediate assistance.</p>
+          <div class="inline-flex items-center gap-2 text-emerald-600 font-bold text-sm group-hover:gap-3 transition-all">
+            <span>Send Email</span>
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="mb-20">
+        <h2 class="text-4xl md:text-5xl font-black text-slate-900 text-center mb-8 tracking-tight">
+          Frequently Asked Questions
+        </h2>
+        
+        <!-- FAQ Search -->
+        <div class="max-w-2xl mx-auto mb-12">
+          <div class="relative">
+            <input 
+              type="text" 
+              id="faq-search" 
+              placeholder="Search FAQs..." 
+              class="w-full px-6 py-4 pl-12 rounded-2xl border-2 border-slate-200 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-200 bg-white/80 backdrop-blur-md text-slate-900 font-semibold placeholder-slate-400"
+            />
+            <svg class="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- FAQ List -->
+        <div id="faqs-container" class="space-y-3 max-w-4xl mx-auto">
+          <!-- FAQs will be rendered here by JavaScript -->
+        </div>
+      </div>
+
+      <!-- Need More Help Section -->
+      <div class="text-center py-12">
+        <p class="text-lg text-slate-600 font-semibold mb-2">Need more help?</p>
+        <a href="#" id="support-page-contact-link" class="text-emerald-600 hover:text-emerald-700 font-bold text-lg underline transition-colors inline-flex items-center gap-2">
+          <span>Contact us here</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-slate-200/60 bg-white/50 backdrop-blur-sm">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-2">
+            <img id="footer-logo" src="icons/icon128.png" alt="Kortex" class="w-8 h-8" />
+            <span class="text-xl font-black bg-clip-text text-transparent bg-gradient-to-r from-emerald-700 to-cyan-600">KORTEX</span>
+          </div>
+          <div class="flex gap-6 text-sm text-slate-600 font-semibold">
+            <a href="privacy-policy.html" class="hover:text-emerald-600 transition-colors">Privacy Policy</a>
+            <a href="#" id="footer-contact-link" class="hover:text-emerald-600 transition-colors">Contact</a>
+            <a href="https://www.linkedin.com/in/yakshgandhi/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">LinkedIn</a>
+          </div>
+        </div>
+        <p class="text-center text-sm text-slate-500 mt-8 font-semibold">© <span id="copyright-year"></span> Kortex. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Contact Form Modal (same as landing page) -->
+  <div id="contact-modal" class="contact-modal hidden">
+    <div class="contact-modal-overlay" id="contact-modal-overlay"></div>
+    <div class="contact-modal-content">
+      <button class="contact-modal-close" id="contact-modal-close" aria-label="Close">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+      <div class="contact-modal-header">
+        <h2 class="text-3xl font-black text-slate-900 mb-2">Get in Touch</h2>
+        <p class="text-slate-600">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+      </div>
+      <form id="contact-form" class="contact-form">
+        <div class="form-group">
+          <label for="contact-name" class="form-label">Name *</label>
+          <input type="text" id="contact-name" name="name" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label for="contact-email" class="form-label">Email *</label>
+          <input type="email" id="contact-email" name="email" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label for="contact-subject" class="form-label">Subject *</label>
+          <input type="text" id="contact-subject" name="subject" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label for="contact-message" class="form-label">Message *</label>
+          <textarea id="contact-message" name="message" rows="5" class="form-input" required></textarea>
+        </div>
+        <div id="contact-form-error" class="form-error hidden"></div>
+        <div id="contact-form-success" class="form-success hidden">
+          <p>Thank you for contacting us! We'll get back to you soon.</p>
+        </div>
+        <button type="submit" id="contact-submit-btn" class="contact-submit-btn">
+          <span id="contact-submit-text">Send Message</span>
+          <span id="contact-submit-loading" class="hidden">Sending...</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
+

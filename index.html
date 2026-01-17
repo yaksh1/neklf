@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kortex - Transform NotebookLM into Your Knowledge Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script type="module" crossorigin src="./assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
+  <script type="module" crossorigin src="./assets/navbar-D8ea9d0Z.js"></script>
+  <script type="module" crossorigin src="./assets/faqs-uSly5jdm.js"></script>
+  <script type="module" crossorigin src="./assets/landing-BsPznxiA.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/navbar-C0Vv_n5O.css">
+</head>
+<body class="bg-[#FDFDFD] text-slate-900 font-sans selection:bg-emerald-600 selection:text-white antialiased">
+  <!-- Background Blobs -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none" style="z-index: 0;">
+    <div class="absolute -top-[10%] -left-[10%] w-[55%] h-[55%] rounded-full bg-emerald-400/20 blur-[130px] animate-pulse"></div>
+    <div class="absolute top-[15%] -right-[5%] w-[40%] h-[40%] rounded-full bg-cyan-400/20 blur-[110px]"></div>
+    <div class="absolute -bottom-[15%] left-[20%] w-[50%] h-[50%] rounded-full bg-teal-300/15 blur-[140px]"></div>
+  </div>
+
+  <!-- Navbar will be injected by navbar.js -->
+  <div id="navbar-placeholder"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative" style="z-index: 10;">
+    <!-- Hero Section -->
+    <section class="relative pt-40 pb-32 md:pt-64 md:pb-48 px-6 overflow-hidden">
+      <div class="text-center relative z-10">
+        <!-- Product Hunt Badge & Stats -->
+        <div class="mb-14 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8">
+          <div class="flex-shrink-0">
+            <a href="https://www.producthunt.com/products/kortex-2?embed=true&utm_source=badge-top-post-badge&utm_medium=badge&utm_campaign=badge-kortex-3" target="_blank" rel="noopener noreferrer">
+              <img alt="Kortex - Organize, import + export NotebookLM sources with a click | Product Hunt" width="300" height="65" src="https://api.producthunt.com/widgets/embed-image/v1/top-post-badge.svg?post_id=1047925&theme=light&period=daily&t=1766439700682">
+            </a>
+          </div>
+          <div class="flex flex-col items-center md:items-start gap-3">
+            <div class="flex items-center gap-2 text-slate-500/80 text-sm md:text-base font-semibold flex-wrap justify-center md:justify-start">
+              <span class="font-black text-slate-700">200k+</span> <span>exports</span>
+              <span class="text-slate-400">·</span>
+              <span class="font-black text-slate-700">105k+</span> <span>imports</span>
+              <span class="text-slate-400">·</span>
+              <span>Works with</span>
+            </div>
+            <div class="flex -space-x-3 justify-center md:justify-start" id="platform-icons">
+              <img src="./assets/icons/linkedin-1-svgrepo-com.svg" alt="LinkedIn" class="w-10 h-10 rounded-full border-2 border-white shadow-sm opacity-90 hover:opacity-100 transition-opacity bg-white p-1.5" />
+              <img src="./assets/icons/reddit-svgrepo-com.svg" alt="Reddit" class="w-10 h-10 rounded-full border-2 border-white shadow-sm opacity-90 hover:opacity-100 transition-opacity bg-white p-1.5" />
+              <img src="./assets/icons/X_logo_2023_original.svg" alt="Twitter/X" class="w-10 h-10 rounded-full border-2 border-white shadow-sm opacity-90 hover:opacity-100 transition-opacity bg-white p-1.5" />
+              <img src="./assets/icons/gemini-color.svg" alt="Gemini" class="w-10 h-10 rounded-full border-2 border-white shadow-sm opacity-90 hover:opacity-100 transition-opacity bg-white p-1.5" />
+              <img src="./assets/icons/openai.svg" alt="ChatGPT" class="w-10 h-10 rounded-full border-2 border-white shadow-sm opacity-90 hover:opacity-100 transition-opacity bg-white p-1.5" />
+              <img src="./assets/icons/claude-color.svg" alt="Claude" class="w-10 h-10 rounded-full border-2 border-white shadow-sm opacity-90 hover:opacity-100 transition-opacity bg-white p-1.5" />
+              <img src="./assets/icons/perplexity-color.svg" alt="Perplexity" class="w-10 h-10 rounded-full border-2 border-white shadow-sm opacity-90 hover:opacity-100 transition-opacity bg-white p-1.5" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Heading -->
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-tight mb-8">
+          Transform NotebookLM<br/><span class="relative inline-block mt-2 italic text-emerald-600">Into Your Knowledge Hub<svg class="absolute -bottom-8 left-0 w-full scale-x-110 underline-svg" viewBox="0 0 338 12" fill="none" style="opacity: 0.7;"><path class="underline-path" d="M3 9C118.957 4.47226 254.444 -3.5 335 9" stroke="#10B981" stroke-width="12" stroke-linecap="round"></path></svg></span>
+        </h1>
+        
+        <!-- Subheading -->
+        <p class="text-xl md:text-2xl text-slate-500/90 mb-16 max-w-3xl mx-auto leading-relaxed font-bold tracking-tight">
+          Seamlessly bridge your AI conversations, web research, and social media content into one unified, searchable repository.
+        </p>
+
+        <!-- CTA Button with Installs Stat -->
+        <div class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8">
+          <button class="bg-emerald-600 text-white px-10 py-5 rounded-full font-black text-lg md:text-xl hover:bg-emerald-700 hover:scale-105 transition-all shadow-xl shadow-emerald-200 flex items-center justify-center gap-3 group" id="hero-cta-btn">
+            Install Now
+            <svg class="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </button>
+          <div class="flex flex-col items-start">
+            <div class="flex -space-x-3 mb-2">
+              <img class="w-12 h-12 rounded-full border-4 border-white shadow-sm" src="https://i.pravatar.cc/150?img=31" alt="user">
+              <img class="w-12 h-12 rounded-full border-4 border-white shadow-sm" src="https://i.pravatar.cc/150?img=32" alt="user">
+              <img class="w-12 h-12 rounded-full border-4 border-white shadow-sm" src="https://i.pravatar.cc/150?img=33" alt="user">
+              <img class="w-12 h-12 rounded-full border-4 border-white shadow-sm" src="https://i.pravatar.cc/150?img=34" alt="user">
+            </div>
+            <p class="text-sm font-black text-slate-400 tracking-wider uppercase">Loved by 28k+ Users</p>
+          </div>
+        </div>
+
+        <!-- YouTube Video Thumbnail -->
+        <div id="tutorial-video" class="max-w-4xl mx-auto mt-20">
+          <a href="https://www.youtube.com/watch?v=NPG7NfZfOps" target="_blank" class="block relative group">
+            <div class="relative bg-gray-900 rounded-3xl overflow-hidden aspect-video shadow-2xl">
+              <img 
+                src="https://img.youtube.com/vi/NPG7NfZfOps/hqdefault.jpg" 
+                alt="Kortex Tutorial Video"
+                class="w-full h-full object-cover"
+              >
+              <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
+                <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center cursor-pointer hover:bg-red-700 transition-colors shadow-lg group-hover:scale-110 transform transition-transform">
+                  <svg class="w-12 h-12 text-white ml-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <p class="text-center text-sm text-slate-500/70 mt-4 font-semibold group-hover:text-emerald-600 transition-colors">Watch on YouTube</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-32 px-6 relative bg-white/50 backdrop-blur-sm">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <button class="bg-emerald-600 text-white px-10 py-5 rounded-full text-base font-bold hover:bg-emerald-700 transition-all hover:scale-105 shadow-xl shadow-emerald-200/50 mb-12" id="testimonials-cta-btn">
+            Try Kortex Free →
+          </button>
+          <h2 class="text-4xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">
+            Loved by users all around the world
+          </h2>
+        </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <a href="https://chromewebstore.google.com/reviews/6f715272-33d8-494e-afdf-f93b023bab73" target="_blank" rel="noopener noreferrer" class="bg-white/80 backdrop-blur-md p-8 rounded-3xl border border-slate-200/60 hover:shadow-xl hover:shadow-emerald-100/50 transition-all duration-300 cursor-pointer block">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center font-bold text-blue-600">AI</div>
+            <div>
+              <p class="font-black text-slate-900">Archana</p>
+              <div class="flex text-yellow-400 text-sm">★★★★★</div>
+            </div>
+          </div>
+          <p class="text-slate-600 leading-relaxed font-semibold">"I am not very tech-savvy, but the Kortex extension is easy to use. I save recipes and cooking notes from different websites, and everything stays in one place. Earlier, I used to forget where I saw a recipe; now it's easy to find. Saves time and effort."</p>
+        </a>
+
+        <a href="https://chromewebstore.google.com/reviews/9deac464-b4ab-40c8-b53d-a1e0b6b1c873" target="_blank" rel="noopener noreferrer" class="bg-white/80 backdrop-blur-md p-8 rounded-3xl border border-slate-200/60 hover:shadow-xl hover:shadow-emerald-100/50 transition-all duration-300 cursor-pointer block">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center font-bold text-blue-600">SI</div>
+            <div>
+              <p class="font-black text-slate-900">Saloni</p>
+              <div class="flex text-yellow-400 text-sm">★★★★★</div>
+            </div>
+          </div>
+          <p class="text-slate-600 leading-relaxed font-semibold">"The source downloader feature is stupidly good. Exporting entire notebooks into Markdown in one zip? That alone makes this extension worth it. I wish I had this months ago."</p>
+        </a>
+
+        <a href="https://chromewebstore.google.com/reviews/75dc6eaf-f296-4002-9b41-af0bc4d24823" target="_blank" rel="noopener noreferrer" class="bg-white/80 backdrop-blur-md p-8 rounded-3xl border border-slate-200/60 hover:shadow-xl hover:shadow-emerald-100/50 transition-all duration-300 cursor-pointer block">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center font-bold text-blue-600">SI</div>
+            <div>
+              <p class="font-black text-slate-900">Suhani</p>
+              <div class="flex text-yellow-400 text-sm">★★★★★</div>
+            </div>
+          </div>
+          <p class="text-slate-600 leading-relaxed font-semibold">"Kortex turns NotebookLM into an actual knowledge base instead of a fancy note dump. Highlighting text from any webpage and sending it straight in feels borderline magical."</p>
+        </a>
+
+        <a href="https://chromewebstore.google.com/reviews/0c2b86e4-8fa4-4247-9b02-de66440fdb0b" target="_blank" rel="noopener noreferrer" class="bg-white/80 backdrop-blur-md p-8 rounded-3xl border border-slate-200/60 hover:shadow-xl hover:shadow-emerald-100/50 transition-all duration-300 cursor-pointer block">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center font-bold text-blue-600">SD</div>
+            <div>
+              <p class="font-black text-slate-900">smit d</p>
+              <div class="flex text-yellow-400 text-sm">★★★★★</div>
+            </div>
+          </div>
+          <p class="text-slate-600 leading-relaxed font-semibold">"Excellent Extension. Saves time and efforts. Worth giving it a try."</p>
+        </a>
+
+        <a href="https://chromewebstore.google.com/reviews/0587024b-b05a-489c-9a1b-c27ebdc0ff6d" target="_blank" rel="noopener noreferrer" class="bg-white/80 backdrop-blur-md p-8 rounded-3xl border border-slate-200/60 hover:shadow-xl hover:shadow-emerald-100/50 transition-all duration-300 cursor-pointer block">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center font-bold text-rose-600">PH</div>
+            <div>
+              <p class="font-black text-slate-900">Powys House</p>
+              <div class="flex text-yellow-400 text-sm">★★★★★</div>
+            </div>
+          </div>
+          <p class="text-slate-600 leading-relaxed font-semibold">"Brilliant! Is going to save me hours. I can make all sorts of enquiries in Gemini and then Kortex consolidates them into a single notebook where I can review what I have found and make sense of it all. Thank you."</p>
+        </a>
+
+        <a href="https://chromewebstore.google.com/reviews/c2a219d1-1aae-48b3-9f5a-517c4090263e" target="_blank" rel="noopener noreferrer" class="bg-white/80 backdrop-blur-md p-8 rounded-3xl border border-slate-200/60 hover:shadow-xl hover:shadow-emerald-100/50 transition-all duration-300 cursor-pointer block">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center font-bold text-purple-600">FC</div>
+            <div>
+              <p class="font-black text-slate-900">FireCracker</p>
+              <div class="flex text-yellow-400 text-sm">★★★★★</div>
+            </div>
+          </div>
+          <p class="text-slate-600 leading-relaxed font-semibold">"Excellent extension for NotebookLM. Import various ai conversations over to ai seamlessly. Adds a convenient button to Gemini"</p>
+        </a>
+      </div>
+
+      <div class="text-center">
+        <a href="customer-love.html" class="text-slate-600 hover:text-emerald-600 font-bold text-sm transition-colors">Read More Reviews →</a>
+      </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-32 px-6 relative">
+      <div class="max-w-[1600px] mx-auto">
+        <h2 class="text-4xl md:text-5xl font-black text-slate-900 text-center mb-4 tracking-tight">
+          Stop Renting Your Brain.<br>Start Owning It.
+        </h2>
+      
+          <p class="text-xl md:text-2xl text-slate-500/90 mb-16 max-w-3xl mx-auto leading-relaxed font-bold text-center tracking-tight">
+            Pricing made for Everyone
+
+        <!-- Pricing Cards -->
+      <div class="grid md:grid-cols-3 gap-8 items-stretch mb-8">
+        <!-- Free Plan -->
+        <div id="free-card" class="p-6 md:p-8 rounded-[2.5rem] border-2 flex flex-col relative transition-all duration-500 hover:-translate-y-3 border-slate-100 bg-white/40 backdrop-blur-xl">
+          <div class="mb-6">
+            <h3 class="text-xl md:text-2xl font-black mb-1 tracking-tighter italic">Free</h3>
+            <p class="text-xs md:text-sm font-bold text-slate-500">Essential tools to get started.</p>
+          </div>
+          <div class="mb-6">
+            <div class="flex items-baseline gap-1">
+              <span class="text-3xl md:text-4xl font-black tracking-tighter">$0</span>
+              <span class="text-sm font-bold text-slate-500 period-text">/month</span>
+            </div>
+          </div>
+          <ul class="space-y-3 mb-8 flex-grow">
+            <li class="flex items-start gap-2.5 text-xs md:text-sm font-bold">
+              <div class="mt-0.5 rounded-full p-0.5 shrink-0 bg-emerald-600 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+              </div>
+              <span class="text-slate-600">Unlimited exports & imports (Daily limits apply)</span>
+            </li>
+            <li class="flex items-start gap-2.5 text-xs md:text-sm font-bold">
+              <div class="mt-0.5 rounded-full p-0.5 shrink-0 bg-emerald-600 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+              </div>
+              <span class="text-slate-600">Strict Local Storage (No Cloud Sync)</span>
+            </li>
+            <li class="flex items-start gap-2.5 text-xs md:text-sm font-bold">
+              <div class="mt-0.5 rounded-full p-0.5 shrink-0 bg-emerald-600 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+              </div>
+              <span class="text-slate-600">10 Prompts (max 3 folders)</span>
+            </li>
+            <li class="flex items-start gap-2.5 text-xs md:text-sm font-bold">
+              <div class="mt-0.5 rounded-full p-0.5 shrink-0 bg-emerald-600 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+              </div>
+              <span class="text-slate-600">5 Daily social imports</span>
+            </li>
+            <li class="flex items-start gap-2.5 text-xs md:text-sm font-bold">
+              <div class="mt-0.5 rounded-full p-0.5 shrink-0 bg-emerald-600 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+              </div>
+              <span class="text-slate-600">5 Source View saves</span>
+            </li>
+            <li class="flex items-start gap-2.5 text-xs md:text-sm font-bold">
+              <div class="mt-0.5 rounded-full p-0.5 shrink-0 bg-emerald-600 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+              </div>
+              <span class="text-slate-600">Smart Search (Sources & Notebooks)</span>
+            </li>
+             <li class="flex items-start gap-2.5 text-xs md:text-sm font-bold">
+              <div class="mt-0.5 rounded-full p-0.5 shrink-0 bg-emerald-600 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+              </div>
+              <span class="text-slate-600">Highlight & Snipe</span>
+            </li>
+          </ul>
+          <button class="w-full py-4 rounded-[1.5rem] font-black text-sm md:text-base transition-all active:scale-95 bg-slate-100 text-slate-900 hover:bg-emerald-50" data-tier="basic">Start Free</button>
+        </div>
+
+        <!-- Pro Plan - Featured -->
+        <div class="subscription-card p-6 md:p-8 rounded-[2.5rem] border-2 flex flex-col relative transition-all duration-500 hover:-translate-y-3 border-emerald-500 bg-white shadow-[0_40px_80px_-20px_rgba(16,185,129,0.25)]">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-emerald-500 text-white text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-[0.2em] shadow-xl shadow-emerald-200 animate-bounce">Popular</div>
+          <div class="mb-6">
+            <h3 class="text-xl md:text-2xl font-black mb-1 tracking-tighter italic">Pro</h3>
+            <p class="text-xs md:text-sm font-bold text-slate-500">No limits. Just pure productivity.</p>
+          </div>
+          <div class="mb-6">
+            <div>
+              <div class="flex items-baseline gap-1">
+                <span class="text-4xl md:text-5xl font-black tracking-tighter text-slate-900">$2.4</span>
+                <span class="text-base font-bold text-slate-500">/ month</span>
+              </div>
+              <p class="text-xs font-bold text-emerald-600 mt-1">Billed as $29 / year</p>
+            </div>
+            <div class="billed-annually-text hidden mt-1">
+              <span class="text-xs text-slate-400 font-semibold">billed annually</span>
+            </div>
+          </div>
+          <ul class="space-y-3 mb-8 flex-grow">
+            <li class="flex items-start gap-2.5 text-xs md:text-sm font-bold">
+              <span class="text-slate-600">
+                <span class="inline-flex items-center gap-1.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#eab308" stroke="#ca8a04" stroke-width="0.5" class="flex-shrink-0">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                  </svg>
+                  <strong>UNLIMITED Everything</strong>
+                </span>
+              </span>
+            </li>
+            <li class="flex items-start gap-2.5 text-xs md:text-sm font-bold">
+              <div class="mt-0.5 rounded-full p-0.5 shrink-0 bg-emerald-600 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+              </div>
+              <span class="text-slate-600"><strong>Cloud Sync:</strong> Unlimited multi-device storage</span>
+            </li>
+            <li class="flex items-start gap-2.5 text-xs md:text-sm font-bold">
+              <div class="mt-0.5 rounded-full p-0.5 shrink-0 bg-emerald-600 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+              </div>
+              <span class="text-slate-600"><strong>Smart Automations:</strong> Auto-organize sources</span>
+            </li>
+            <li class="flex items-start gap-2.5 text-xs md:text-sm font-bold">
+              <div class="mt-0.5 rounded-full p-0.5 shrink-0 bg-emerald-600 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+              </div>
+              <span class="text-slate-600"><strong>Podcast Feeds:</strong> Listen to your notebooks</span>
+            </li>
+            <li class="flex items-start gap-2.5 text-xs md:text-sm font-bold">
+              <div class="mt-0.5 rounded-full p-0.5 shrink-0 bg-emerald-600 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+              </div>
+              <span class="text-slate-600"><strong>Bulk Imports:</strong> Tabs, CSVs, RSS & more</span>
+            </li>
+             <li class="flex items-start gap-2.5 text-xs md:text-sm font-bold">
+              <div class="mt-0.5 rounded-full p-0.5 shrink-0 bg-emerald-600 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+              </div>
+              <span class="text-slate-600"><strong>Source Management:</strong> Move & Merge sources between notebooks</span>
+            </li>
+             <li class="flex items-start gap-2.5 text-xs md:text-sm font-bold">
+              <div class="mt-0.5 rounded-full p-0.5 shrink-0 bg-emerald-600 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+              </div>
+              <span class="text-slate-600"><strong>Bulk Generation:</strong> Generate artifacts in batches</span>
+            </li>
+            <li class="flex items-start gap-2.5 text-xs md:text-sm font-bold">
+              <div class="mt-0.5 rounded-full p-0.5 shrink-0 bg-emerald-600 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+              </div>
+              <span class="text-slate-600"><strong>Google Docs Sync:</strong> Instant 1-click sync of all sources</span>
+            </li>
+             <li class="flex items-start gap-2.5 text-xs md:text-sm font-bold">
+              <div class="mt-0.5 rounded-full p-0.5 shrink-0 bg-emerald-600 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+              </div>
+              <span class="text-slate-600"><strong>Preview & Edit:</strong> Before downloading</span>
+            </li>
+            <li class="flex items-start gap-2.5 text-xs md:text-sm font-bold">
+              <div class="mt-0.5 rounded-full p-0.5 shrink-0 bg-emerald-600 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+              </div>
+              <span class="text-slate-600"><strong>Waitlist Priority:</strong> Skip the queue</span>
+            </li>
+          </ul>
+          <button class="w-full py-4 rounded-[1.5rem] font-black text-sm md:text-base transition-all active:scale-95 bg-emerald-500 text-white hover:bg-emerald-600 shadow-2xl shadow-emerald-200" data-tier="pro">Get Pro</button>
+        </div>
+
+        <!-- Lifetime Pro Plan -->
+        <div class="subscription-card p-6 md:p-8 rounded-[2.5rem] border-2 flex flex-col relative transition-all duration-500 hover:-translate-y-3 border-slate-100 bg-white/40 backdrop-blur-xl">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-emerald-500 text-white text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-[0.2em] shadow-xl shadow-emerald-200 animate-bounce">Best Value</div>
+          <div class="mb-6">
+            <h3 class="text-xl md:text-2xl font-black mb-1 tracking-tighter italic">Lifetime Pro</h3>
+            <p class="text-xs md:text-sm font-bold text-slate-500">OWN IT FOREVER.</p>
+            <p class="text-xs md:text-sm font-bold text-emerald-600 italic mt-1">Limited time offer.</p>
+          </div>
+          <div class="mb-6">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-lg md:text-xl font-bold text-slate-400 line-through">$100</span>
+              <span class="bg-emerald-500 text-white text-xs font-black px-3 py-1 rounded-full uppercase tracking-wide">50% OFF</span>
+            </div>
+            <div class="flex items-baseline gap-1 flex-wrap">
+              <span class="text-3xl md:text-4xl font-black tracking-tighter">$49</span>
+              <span class="text-sm font-bold text-slate-500">one-time</span>
+            </div>
+          </div>
+          <ul class="space-y-3 mb-8 flex-grow">
+            <li class="flex items-start gap-2.5 text-xs md:text-sm font-bold">
+              <span class="text-slate-600">
+                <span class="inline-flex items-center gap-1.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#eab308" stroke="#ca8a04" stroke-width="0.5" class="flex-shrink-0">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                  </svg>
+                  <strong>Everything in Pro +</strong>
+                </span>
+              </span>
+            </li>
+            <li class="flex items-start gap-2.5 text-xs md:text-sm font-bold">
+              <div class="mt-0.5 rounded-full p-0.5 shrink-0 bg-emerald-600 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+              </div>
+              <span class="text-slate-600"><strong>Pay Once, Use Forever:</strong> No monthly fees</span>
+            </li>
+            <li class="flex items-start gap-2.5 text-xs md:text-sm font-bold">
+              <div class="mt-0.5 rounded-full p-0.5 shrink-0 bg-emerald-600 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+              </div>
+              <span class="text-slate-600"><strong>Future-Proof:</strong> Includes all future Pro updates</span>
+            </li>
+            <li class="flex items-start gap-2.5 text-xs md:text-sm font-bold">
+              <div class="mt-0.5 rounded-full p-0.5 shrink-0 bg-emerald-600 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+              </div>
+              <span class="text-slate-600"><strong>Full Social & Google Sync</strong> suite.</span>
+            </li>
+             <li class="flex items-start gap-2.5 text-xs md:text-sm font-bold">
+              <div class="mt-0.5 rounded-full p-0.5 shrink-0 bg-emerald-600 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+              </div>
+              <span class="text-slate-600"><strong>Priority Access:</strong> First in line for new features</span>
+            </li>
+          </ul>
+          <button class="w-full py-4 rounded-[1.5rem] font-black text-sm md:text-base transition-all active:scale-95 bg-slate-900 text-white hover:bg-slate-800 shadow-xl" data-tier="lifetime-pro">Get Lifetime Pro</button>
+        </div>
+      </div>
+
+      <!-- Enterprise Card (Horizontal) -->
+      <div class="subscription-card p-8 md:p-12 rounded-[2.5rem] border-2 border-slate-900 bg-slate-900 text-white shadow-[0_20px_60px_-15px_rgba(15,23,42,0.5)] transition-all duration-500 hover:-translate-y-2">
+        <div class="flex flex-col lg:flex-row gap-12 lg:items-start">
+          
+          <!-- Left: Title & Pricing -->
+          <div class="lg:w-2/5 border-b lg:border-b-0 lg:border-r border-slate-700 pb-8 lg:pb-0 lg:pr-12">
+             <div class="mb-6">
+              <h3 class="text-3xl font-black mb-2 tracking-tighter italic">Enterprise</h3>
+              <p class="text-base font-bold text-slate-400">Security & control for teams.</p>
+            </div>
+            <div>
+              <div class="flex items-baseline gap-1">
+                <span class="text-4xl md:text-5xl font-black tracking-tighter">Custom</span>
+              </div>
+              <p class="text-sm font-bold text-emerald-400 mt-2">Volume discounts available</p>
+            </div>
+            <div class="mt-10">
+               <button id="enterprise-contact-btn" class="w-full py-4 rounded-[1.5rem] font-black text-base transition-all active:scale-95 bg-white text-slate-900 hover:bg-emerald-50 shadow-xl">Contact Sales</button>
+            </div>
+          </div>
+
+          <!-- Right: Features Grid -->
+          <div class="lg:w-3/5 lg:pl-4">
+            <h4 class="text-lg font-bold text-slate-200 mb-8">Everything in Pro, plus:</h4>
+            <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
+              
+              <div class="flex items-start gap-4">
+                 <div class="mt-1 rounded-full p-1 shrink-0 bg-emerald-500 text-slate-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+                  </div>
+                  <div>
+                    <strong class="block text-slate-200 text-base">SSO & Provisioning</strong>
+                    <span class="text-slate-400 text-sm font-semibold">Okta, Google Workspace, Azure AD</span>
+                  </div>
+              </div>
+
+               <div class="flex items-start gap-4">
+                 <div class="mt-1 rounded-full p-1 shrink-0 bg-emerald-500 text-slate-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+                  </div>
+                  <div>
+                    <strong class="block text-slate-200 text-base">Centralized Billing</strong>
+                    <span class="text-slate-400 text-sm font-semibold">Pay via invoice, annual contracts</span>
+                  </div>
+              </div>
+
+               <div class="flex items-start gap-4">
+                 <div class="mt-1 rounded-full p-1 shrink-0 bg-emerald-500 text-slate-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+                  </div>
+                  <div>
+                    <strong class="block text-slate-200 text-base">Zero-Retention Guarantee</strong>
+                    <span class="text-slate-400 text-sm font-semibold">Custom security & privacy agreements</span>
+                  </div>
+              </div>
+
+               <div class="flex items-start gap-4">
+                 <div class="mt-1 rounded-full p-1 shrink-0 bg-emerald-500 text-slate-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+                  </div>
+                  <div>
+                    <strong class="block text-slate-200 text-base">Priority Support</strong>
+                    <span class="text-slate-400 text-sm font-semibold">Dedicated success manager & SLA</span>
+                  </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Companies Section -->
+    <section class="py-24 px-6 relative bg-white/30 backdrop-blur-sm overflow-hidden rounded-3xl">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-black text-slate-900 text-center mb-12 tracking-tight">
+          Infiltrating the World's Best Institutions
+        </h2>
+        <div class="marquee-container">
+          <div class="marquee-track">
+            <div class="marquee-item">OpenAI</div>
+            <div class="marquee-item">Harvard</div>
+            <div class="marquee-item">Anthropic</div>
+            <div class="marquee-item">Tsinghua</div>
+            <div class="marquee-item">Google</div>
+            <div class="marquee-item">Yale</div>
+            <div class="marquee-item">Meta</div>
+            <div class="marquee-item">Peking University</div>
+            <div class="marquee-item">Microsoft</div>
+            <div class="marquee-item">Princeton</div>
+            <div class="marquee-item">Amazon</div>
+            <div class="marquee-item">Fudan</div>
+            <div class="marquee-item">Apple</div>
+            <div class="marquee-item">Columbia</div>
+            <div class="marquee-item">Tesla</div>
+            <div class="marquee-item">Shanghai Jiao Tong</div>
+            <div class="marquee-item">NVIDIA</div>
+            <div class="marquee-item">Penn</div>
+            <div class="marquee-item">Adobe</div>
+            <div class="marquee-item">Zhejiang</div>
+            <div class="marquee-item">Salesforce</div>
+            <div class="marquee-item">Cornell</div>
+            <div class="marquee-item">IBM</div>
+            <div class="marquee-item">Nanjing</div>
+            <div class="marquee-item">Oracle</div>
+            <div class="marquee-item">Brown</div>
+            <div class="marquee-item">Netflix</div>
+            <div class="marquee-item">Dartmouth</div>
+            <div class="marquee-item">Spotify</div>
+            <!-- Duplicate for seamless loop -->
+            <div class="marquee-item">OpenAI</div>
+            <div class="marquee-item">Harvard</div>
+            <div class="marquee-item">Anthropic</div>
+            <div class="marquee-item">Tsinghua</div>
+            <div class="marquee-item">Google</div>
+            <div class="marquee-item">Yale</div>
+            <div class="marquee-item">Meta</div>
+            <div class="marquee-item">Peking University</div>
+            <div class="marquee-item">Microsoft</div>
+            <div class="marquee-item">Princeton</div>
+            <div class="marquee-item">Amazon</div>
+            <div class="marquee-item">Fudan</div>
+            <div class="marquee-item">Apple</div>
+            <div class="marquee-item">Columbia</div>
+            <div class="marquee-item">Tesla</div>
+            <div class="marquee-item">Shanghai Jiao Tong</div>
+            <div class="marquee-item">NVIDIA</div>
+            <div class="marquee-item">Penn</div>
+            <div class="marquee-item">Adobe</div>
+            <div class="marquee-item">Zhejiang</div>
+            <div class="marquee-item">Salesforce</div>
+            <div class="marquee-item">Cornell</div>
+            <div class="marquee-item">IBM</div>
+            <div class="marquee-item">Nanjing</div>
+            <div class="marquee-item">Oracle</div>
+            <div class="marquee-item">Brown</div>
+            <div class="marquee-item">Netflix</div>
+            <div class="marquee-item">Dartmouth</div>
+            <div class="marquee-item">Spotify</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Value Proposition Section -->
+    <section id="features" class="py-32 px-6 relative">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-black text-slate-900 text-center mb-6 tracking-tight">
+          Get your knowledge base right, first time
+        </h2>
+       
+        <p class="text-xl md:text-2xl text-slate-500/90 mb-16 max-w-3xl mx-auto leading-relaxed font-bold text-center tracking-tight">
+          The easiest way to unify all your AI interactions, web research, and social content. No need to copy, paste, or change context.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="p-10 rounded-[3rem] border border-slate-200/60 bg-white/40 backdrop-blur-md hover:bg-white hover:shadow-[0_30px_60px_-15px_rgba(16,185,129,0.15)] transition-all duration-500 group text-center">
+            <div class="w-16 h-16 bg-emerald-50 rounded-3xl flex items-center justify-center border border-emerald-100 shadow-sm mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 mx-auto">
+              <span class="text-3xl">⚡</span>
+            </div>
+            <h3 class="text-2xl font-black mb-4 tracking-tight group-hover:text-emerald-600 transition-colors">Instant Value</h3>
+            <p class="text-slate-500 leading-relaxed font-semibold text-lg">The fastest way to build a comprehensive knowledge base, with a single click.</p>
+          </div>
+          <div class="p-10 rounded-[3rem] border border-slate-200/60 bg-white/40 backdrop-blur-md hover:bg-white hover:shadow-[0_30px_60px_-15px_rgba(16,185,129,0.15)] transition-all duration-500 group text-center">
+            <div class="w-16 h-16 bg-emerald-50 rounded-3xl flex items-center justify-center border border-emerald-100 shadow-sm mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 mx-auto">
+              <span class="text-3xl">🎯</span>
+            </div>
+            <h3 class="text-2xl font-black mb-4 tracking-tight group-hover:text-emerald-600 transition-colors">Better Results</h3>
+            <p class="text-slate-500 leading-relaxed font-semibold text-lg">Get more accurate, relevant, and useful insights from your unified knowledge base.</p>
+          </div>
+          <div class="p-10 rounded-[3rem] border border-slate-200/60 bg-white/40 backdrop-blur-md hover:bg-white hover:shadow-[0_30px_60px_-15px_rgba(16,185,129,0.15)] transition-all duration-500 group text-center">
+            <div class="w-16 h-16 bg-emerald-50 rounded-3xl flex items-center justify-center border border-emerald-100 shadow-sm mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 mx-auto">
+              <span class="text-3xl">⏱️</span>
+            </div>
+            <h3 class="text-2xl font-black mb-4 tracking-tight group-hover:text-emerald-600 transition-colors">Time Saving</h3>
+            <p class="text-slate-500 leading-relaxed font-semibold text-lg">Save hours every week on manual exports and organization, focus on your work.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Single Testimonial -->
+    <section class="py-24 px-6 relative">
+      <div id="review-card" class="max-w-2xl mx-auto bg-white/80 backdrop-blur-md p-8 rounded-[2.5rem] border border-slate-200/60 shadow-xl shadow-emerald-100/30 cursor-pointer hover:shadow-2xl hover:shadow-emerald-100/50 transition-all duration-300">
+        <div class="flex items-center gap-4 mb-4">
+          <img src="https://lh3.googleusercontent.com/a-/ALV-UjWMXxbNm5RBnMlUiVFT4ufgf-Jj_uMpsZEtUYnGlUHYmyO0eZgQ=s96-w96-h96" alt="Steve Lang" class="w-16 h-16 rounded-full object-cover">
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <p class="font-black text-slate-900 text-lg">Steve Lang</p>
+              <div class="flex">
+                <svg class="w-4 h-4 text-slate-900 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                <svg class="w-4 h-4 text-slate-900 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                <svg class="w-4 h-4 text-slate-900 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                <svg class="w-4 h-4 text-slate-900 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                <svg class="w-4 h-4 text-slate-900 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="text-slate-700 text-base leading-relaxed mb-3">
+          Easy to use and works well! Just click on the NotebookLM button in a chat, and you will be prompted to add the chat to a new project or existing one. The newly created source is formatted very cleanly, with prompts and responses indicated clearly (no extra random characters, etc.)
+        </p>
+        <div class="flex items-center gap-2 text-slate-500 text-xs">
+          <span>3 out of 3 found this helpful</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     <!-- FAQ Section -->
+     <section id="support" class="py-32 px-6 relative">
+       <div class="max-w-4xl mx-auto">
+         <h2 class="text-4xl md:text-5xl font-black text-slate-900 text-center mb-4 tracking-tight">
+           Frequently Asked Questions
+         </h2>
+         <p class="text-center text-lg text-slate-500/90 mb-16 font-semibold">
+           Everything you need to know about Kortex
+         </p>
+         <div id="faqs-container" class="space-y-3">
+           <!-- FAQs will be rendered here t -->
+         </div>
+         <div class="text-center mt-12">
+           <p class="text-slate-600 text-base md:text-lg font-semibold mb-2">Need more help?</p>
+           <p class="text-slate-500 text-sm md:text-base">For all FAQs and help, visit the <a href="support.html" class="text-emerald-600 hover:text-emerald-700 font-bold underline transition-colors">Support Page</a></p>
+         </div>
+       </div>
+     </section>
+
+    <!-- Final CTA -->
+    <section class="py-6 px-6">
+      <div class="max-w-7xl mx-auto bg-slate-900 rounded-[4rem] p-10 md:p-20 text-center text-white relative overflow-hidden group shadow-[0_50px_100px_-20px_rgba(16,185,129,0.2)]">
+        <div class="absolute -top-1/2 -left-1/4 w-[400px] h-[400px] bg-emerald-600/30 rounded-full blur-[150px] group-hover:bg-emerald-600/50 transition-all duration-1000"></div>
+        <div class="absolute -bottom-1/2 -right-1/4 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[150px]"></div>
+        <div class="relative z-10">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-black mb-8 tracking-tighter leading-[0.8] italic decoration-emerald-600 underline-offset-[20px]">
+            Get 10x out of NotebookLM.<br/>For just $1/week.
+          </h2>
+          <div class="flex gap-4 justify-center flex-wrap">
+            <button class="bg-emerald-600 text-white px-8 py-3 rounded-full font-black text-lg hover:bg-emerald-700 transition-all hover:scale-110 active:scale-95 shadow-[0_30px_80px_rgba(16,185,129,0.5)]" id="final-cta-btn">
+              Try Kortex Free →
+            </button>
+            <button class="bg-transparent border-2 border-white/30 text-white px-8 py-3 rounded-full font-black text-lg hover:bg-white/10 hover:border-white transition-all hover:scale-110 active:scale-95" id="pricing-cta-btn">
+              See Pricing →
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured On -->
+    <section class="py-12 border-t border-slate-200/60 bg-white/30 backdrop-blur-sm">
+      <div class="max-w-7xl mx-auto px-6">
+        <h3 class="text-sm font-black text-slate-500 text-center mb-8 uppercase tracking-wider">Featured on</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-8">
+          <a href="https://www.producthunt.com/products/kortex-2/launches/kortex-3" target="_blank" rel="noopener noreferrer" class="bg-white/80 backdrop-blur-md rounded-2xl border border-slate-200/60 hover:border-emerald-200/60 hover:shadow-lg hover:shadow-emerald-50/50 transition-all duration-300 p-6 group">
+            <div class="flex items-center gap-4 mb-3">
+              <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center font-black text-orange-600 text-xl">PH</div>
+              <div>
+                <h4 class="font-black text-slate-900 text-lg group-hover:text-emerald-600 transition-colors">Product Hunt</h4>
+                <p class="text-xs text-slate-500 font-semibold">Product Launch</p>
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm font-semibold leading-relaxed">Check out Kortex on Product Hunt</p>
+            <div class="mt-4 flex items-center gap-2 text-emerald-600 font-bold text-sm group-hover:gap-3 transition-all">
+              <span>View Launch</span>
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+              </svg>
+            </div>
+          </a>
+          <a href="https://www.xda-developers.com/kortex-notebooklm-chrome-extension/" target="_blank" rel="noopener noreferrer" class="bg-white/80 backdrop-blur-md rounded-2xl border border-slate-200/60 hover:border-emerald-200/60 hover:shadow-lg hover:shadow-emerald-50/50 transition-all duration-300 p-6 group">
+            <div class="flex items-center gap-4 mb-3">
+              <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center font-black text-purple-600 text-xl">XD</div>
+              <div>
+                <h4 class="font-black text-slate-900 text-lg group-hover:text-emerald-600 transition-colors">XDA Developers</h4>
+                <p class="text-xs text-slate-500 font-semibold">Tech Review</p>
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm font-semibold leading-relaxed">Read the full review on XDA Developers</p>
+            <div class="mt-4 flex items-center gap-2 text-emerald-600 font-bold text-sm group-hover:gap-3 transition-all">
+              <span>Read Article</span>
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-slate-200/60 bg-white/50 backdrop-blur-sm">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-2">
+            <img id="footer-logo" src="icons/icon128.png" alt="Kortex" class="w-8 h-8" />
+            <span class="text-xl font-black bg-clip-text text-transparent bg-gradient-to-r from-emerald-700 to-cyan-600">KORTEX</span>
+          </div>
+          <div class="flex gap-6 text-sm text-slate-600 font-semibold">
+            <a href="privacy-policy.html" class="hover:text-emerald-600 transition-colors">Privacy Policy</a>
+            <a href="#" id="contact-link" class="hover:text-emerald-600 transition-colors">Contact</a>
+            <a href="https://www.linkedin.com/in/yakshgandhi/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 transition-colors">LinkedIn</a>
+          </div>
+        </div>
+        <p class="text-center text-sm text-slate-500 mt-8 font-semibold">© <span id="copyright-year"></span> Kortex. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Contact Form Modal -->
+  <div id="contact-modal" class="contact-modal hidden">
+    <div class="contact-modal-overlay" id="contact-modal-overlay"></div>
+    <div class="contact-modal-content">
+      <button class="contact-modal-close" id="contact-modal-close" aria-label="Close">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+      <div class="contact-modal-header">
+        <h2 class="text-3xl font-black text-slate-900 mb-2">Get in Touch</h2>
+        <p class="text-slate-600">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+      </div>
+      <form id="contact-form" class="contact-form">
+        <div class="form-group">
+          <label for="contact-name" class="form-label">Name *</label>
+          <input type="text" id="contact-name" name="name" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label for="contact-email" class="form-label">Email *</label>
+          <input type="email" id="contact-email" name="email" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label for="contact-subject" class="form-label">Subject *</label>
+          <input type="text" id="contact-subject" name="subject" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label for="contact-message" class="form-label">Message *</label>
+          <textarea id="contact-message" name="message" rows="5" class="form-input" required></textarea>
+        </div>
+        <div id="contact-form-error" class="form-error hidden"></div>
+        <div id="contact-form-success" class="form-success hidden">
+          <p>Thank you for contacting us! We'll get back to you soon.</p>
+        </div>
+        <button type="submit" id="contact-submit-btn" class="contact-submit-btn">
+          <span id="contact-submit-text">Send Message</span>
+          <span id="contact-submit-loading" class="hidden">Sending...</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

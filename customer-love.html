@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Love - Kortex</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* Vision Board Container */
+    .vision-board-container {
+      position: fixed;
+      inset: 0;
+      background: transparent;
+      overflow: hidden;
+      -webkit-user-select: none;
+         -moz-user-select: none;
+              user-select: none;
+      cursor: grab;
+    }
+
+    .vision-board-container.dragging {
+      cursor: grabbing;
+    }
+
+    /* Dot Grid Background */
+    .dot-grid {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.15;
+      background-image: radial-gradient(#10b981 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* Canvas Wrapper */
+    .canvas-wrapper {
+      position: absolute;
+      inset: 0;
+      will-change: transform;
+      transition: transform 850ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .canvas-wrapper.teleporting {
+      transition: transform 850ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    /* Review Card */
+    .review-card {
+      position: absolute;
+      width: 340px;
+      padding: 28px;
+      border-radius: 2rem;
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      transition: all 700ms cubic-bezier(0.34, 1.56, 0.64, 1);
+      cursor: default;
+      transform-origin: center center;
+    }
+
+    .review-card.clickable {
+      cursor: pointer;
+    }
+
+    .review-card:hover {
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      transform: scale(1.03);
+    }
+
+    .review-card.targeted {
+      border-color: #10b981;
+      box-shadow: 0 0 60px rgba(16, 185, 129, 0.4);
+      transform: scale(1.15);
+      z-index: 100;
+    }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .review-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 1rem;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #1f2937;
+      font-size: 18px;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      flex-shrink: 0;
+    }
+
+    .review-author-info {
+      flex: 1;
+    }
+
+    .review-author-name {
+      font-weight: 800;
+      color: #111827;
+      font-size: 16px;
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .review-handle {
+      font-size: 10px;
+      color: #10b981;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .review-text {
+      color: #1f2937;
+      line-height: 1.6;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+
+    .review-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .review-stars {
+      display: flex;
+      gap: 2px;
+    }
+
+    .review-stars svg {
+      width: 14px;
+      height: 14px;
+      fill: #fbbf24;
+      color: #fbbf24;
+    }
+
+    .review-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 9999px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      font-size: 9px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #6b7280;
+    }
+
+    .review-badge svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    /* Color variations */
+    .review-card.bg-blue-50 { background: #eff6ff; }
+    .review-card.bg-rose-50 { background: #fff1f2; }
+    .review-card.bg-purple-50 { background: #faf5ff; }
+    .review-card.bg-amber-50 { background: #fffbeb; }
+    .review-card.bg-emerald-50 { background: #ecfdf5; }
+    .review-card.bg-indigo-50 { background: #eef2ff; }
+    .review-card.bg-orange-50 { background: #fff7ed; }
+    .review-card.bg-pink-50 { background: #fdf2f8; }
+
+    /* Header */
+    .page-header {
+      position: absolute;
+      top: 32px;
+      left: 32px;
+      pointer-events: none;
+      z-index: 50;
+    }
+
+    .header-card {
+      background: white;
+      padding: 20px;
+      border-radius: 1.5rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      border: 1px solid #e2e8f0;
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .header-icon {
+      background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+      padding: 10px;
+      border-radius: 0.75rem;
+      color: white;
+      box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);
+    }
+
+    .header-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .header-text h1 {
+      font-weight: 900;
+      color: #0f172a;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    .header-text p {
+      font-size: 10px;
+      color: #94a3b8;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin: 0;
+    }
+
+    .leave-review-btn {
+      background: white;
+      color: #10b981;
+      padding: 12px 20px;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-weight: 800;
+      border: 2px solid #10b981;
+      box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.2);
+      pointer-events: auto;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .leave-review-btn .heart {
+      display: inline-block;
+      position: relative;
+      width: 1em;
+      text-align: center;
+    }
+
+    .leave-review-btn .heart-unfilled {
+      opacity: 1;
+      transition: opacity 0.2s ease;
+    }
+
+    .leave-review-btn .heart-filled {
+      opacity: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .leave-review-btn:hover {
+      background: #10b981;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 15px 20px -5px rgba(16, 185, 129, 0.3);
+    }
+
+    .leave-review-btn:hover .heart-unfilled {
+      opacity: 0;
+    }
+
+    .leave-review-btn:hover .heart-filled {
+      opacity: 1;
+    }
+
+    .leave-review-btn:active {
+      transform: scale(0.95);
+    }
+
+    /* Coordinates Display */
+    .coordinates {
+      position: absolute;
+      bottom: 32px;
+      left: 32px;
+      pointer-events: none;
+      z-index: 50;
+    }
+
+    .coordinates-box {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+      padding: 8px 16px;
+      border-radius: 9999px;
+      border: 1px solid #e2e8f0;
+      font-size: 10px;
+      font-family: monospace;
+      color: #64748b;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    }
+
+    /* Random Button */
+    .random-btn {
+      position: absolute;
+      bottom: 40px;
+      right: 40px;
+      z-index: 50;
+      pointer-events: auto;
+    }
+
+    .random-btn button {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 24px 40px 24px 32px;
+      border-radius: 2rem;
+      font-weight: 900;
+      color: white;
+      border: none;
+      box-shadow: 0 30px 60px -12px rgba(16, 185, 129, 0.4);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .random-btn button:not(.teleporting) {
+      background: #10b981;
+    }
+
+    .random-btn button:not(.teleporting):hover {
+      background: #059669;
+      transform: translateY(-8px);
+    }
+
+    .random-btn button:active {
+      transform: scale(0.9);
+    }
+
+    .random-btn button.teleporting {
+      background: #64748b;
+      cursor: wait;
+    }
+
+    .random-btn-icon {
+      position: relative;
+    }
+
+    .random-btn-icon svg {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.7s ease;
+    }
+
+    .random-btn:hover .random-btn-icon svg:not(.spinning) {
+      transform: rotate(180deg);
+    }
+
+    .random-btn-icon svg.spinning {
+      animation: spin 1s linear infinite;
+    }
+
+    .random-btn-ping {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      width: 10px;
+      height: 10px;
+      background: #fb7185;
+      border-radius: 50%;
+      border: 2px solid #10b981;
+      animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes ping {
+      75%, 100% {
+        transform: scale(2);
+        opacity: 0;
+      }
+    }
+
+    /* Instructions */
+    .instructions {
+      position: absolute;
+      bottom: 160px;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      z-index: 100;
+    }
+
+    .instructions.visible {
+      opacity: 1;
+      animation: pulseInstructions 2s ease-in-out infinite;
+    }
+
+    .instructions-box {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border: 2px solid #10b981;
+      border-radius: 1.5rem;
+      padding: 20px 32px;
+      box-shadow: 0 20px 40px -12px rgba(16, 185, 129, 0.3), 0 0 0 1px rgba(16, 185, 129, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .instructions-icon {
+      width: 24px;
+      height: 24px;
+      color: #10b981;
+      flex-shrink: 0;
+    }
+
+    .instructions-line {
+      width: 2px;
+      height: 60px;
+      background: linear-gradient(to bottom, transparent, #10b981);
+    }
+
+    .instructions-text {
+      font-size: 14px;
+      font-weight: 900;
+      color: #10b981;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      white-space: nowrap;
+    }
+
+    @keyframes pulseInstructions {
+      0%, 100% {
+        transform: translateX(-50%) scale(1);
+      }
+      50% {
+        transform: translateX(-50%) scale(1.05);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .review-card {
+        width: 300px;
+        padding: 24px;
+      }
+
+      .page-header {
+        top: 16px;
+        left: 16px;
+        right: 16px;
+      }
+
+      .header-card {
+        padding: 16px;
+      }
+
+      .random-btn {
+        bottom: 16px;
+        right: 16px;
+      }
+
+      .random-btn button {
+        padding: 20px 32px 20px 24px;
+        font-size: 16px;
+      }
+
+      .coordinates {
+        bottom: 16px;
+        left: 16px;
+      }
+
+      .leave-review-btn {
+        font-size: 12px;
+        padding: 10px 16px;
+        margin-top: 8px;
+      }
+    }
+  </style>
+  <script type="module" crossorigin src="./assets/customer-love-BaAls7Ly.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="modulepreload" crossorigin href="./assets/navbar-D8ea9d0Z.js">
+  <link rel="stylesheet" crossorigin href="./assets/navbar-C0Vv_n5O.css">
+</head>
+<body class="bg-[#FDFDFD] text-slate-900 font-sans selection:bg-emerald-600 selection:text-white antialiased">
+  <!-- Navbar will be injected by navbar.js -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- Background Blobs -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none" style="z-index: 0;">
+    <div class="absolute -top-[10%] -left-[10%] w-[55%] h-[55%] rounded-full bg-emerald-400/20 blur-[130px] animate-pulse"></div>
+    <div class="absolute top-[15%] -right-[5%] w-[40%] h-[40%] rounded-full bg-cyan-400/20 blur-[110px]"></div>
+    <div class="absolute -bottom-[15%] left-[20%] w-[50%] h-[50%] rounded-full bg-teal-300/15 blur-[140px]"></div>
+  </div>
+
+  <!-- Vision Board Container -->
+  <div class="vision-board-container" id="vision-board-container" style="top: 80px;">
+    <!-- Dot Grid Background -->
+    <div class="dot-grid" id="dot-grid"></div>
+
+    <!-- Canvas Wrapper -->
+    <div class="canvas-wrapper" id="canvas-wrapper">
+      <!-- Review cards will be populated here -->
+    </div>
+
+    <!-- Header -->
+    <div class="page-header">
+      <div class="header-card">
+        <div class="header-icon">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+          </svg>
+        </div>
+        <div class="header-text">
+          <h1>CUSTOMER LOVE</h1>
+          <p>The Infinite Vision Board</p>
+        </div>
+      </div>
+      <a href="https://chromewebstore.google.com/detail/kortex/hdapplggdhndkblofffknpmnnnnbncbn/reviews" target="_blank" rel="noopener noreferrer" class="leave-review-btn">
+        <span class="heart" style="position: relative;">
+          <span class="heart-unfilled">♡</span>
+          <span class="heart-filled">❤️</span>
+        </span>
+        Leave a Review
+      </a>
+    </div>
+    
+    <!-- Coordinates -->
+    <div class="coordinates">
+      <div class="coordinates-box">
+        CAM_OFFSET: <span id="coords-x">0</span>, <span id="coords-y">0</span>
+      </div>
+    </div>
+
+    <!-- Random Button -->
+    <div class="random-btn">
+      <button id="random-btn" class="group">
+        <div class="random-btn-icon">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+          </svg>
+          <div class="random-btn-ping" id="random-btn-ping"></div>
+        </div>
+        <span>SURPRISE ME</span>
+      </button>
+    </div>
+
+    <!-- Instructions -->
+    <div class="instructions" id="instructions">
+      <div class="instructions-box">
+        <svg class="instructions-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+        </svg>
+        <span class="instructions-text">Click & Drag to Explore</span>
+      </div>
+      <div class="instructions-line"></div>
+    </div>
+  </div>
+
+</body>
+</html>
