@@ -9,10 +9,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <script type="module" crossorigin src="./assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
-  <script type="module" crossorigin src="./assets/navbar-BT02lzw9.js"></script>
+  <script type="module" crossorigin src="./assets/navbar-U3wnY3A6.js"></script>
   <script type="module" crossorigin src="./assets/faqs-uSly5jdm.js"></script>
-  <script type="module" crossorigin src="./assets/landing-BizEHeAl.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/navbar-C5uLkzCJ.css">
+  <script type="module" crossorigin src="./assets/landing-D9IuE1XA.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/navbar-ublcqAlP.css">
 </head>
 <body class="bg-[#FDFDFD] text-slate-900 font-sans selection:bg-emerald-600 selection:text-white antialiased">
   <!-- Background Blobs -->
@@ -201,8 +201,21 @@
           Stop Renting Your Brain.<br>Start Owning It.
         </h2>
       
-          <p class="text-xl md:text-2xl text-slate-500/90 mb-16 max-w-3xl mx-auto leading-relaxed font-bold text-center tracking-tight">
+          <p class="text-xl md:text-2xl text-slate-500/90 mb-8 max-w-3xl mx-auto leading-relaxed font-bold text-center tracking-tight">
             Pricing made for Everyone
+          </p>
+
+          <!-- Toggle Switch -->
+          <div class="flex items-center justify-center gap-4 mb-12">
+            <span class="text-sm font-bold text-slate-500" id="monthly-label">Monthly</span>
+            <button id="billing-toggle" class="w-16 h-8 bg-emerald-600 rounded-full p-1 transition-colors duration-300 relative focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2" aria-checked="true" role="switch">
+              <div class="w-6 h-6 bg-white rounded-full shadow-md transform translate-x-8 transition-transform duration-300"></div>
+            </button>
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-bold text-slate-900" id="yearly-label">Yearly</span>
+              <span class="text-[10px] font-black uppercase tracking-wider text-emerald-600 bg-emerald-100 px-2 py-0.5 rounded-full">Save 2 months</span>
+            </div>
+          </div>
 
         <!-- Pricing Cards -->
       <div class="grid md:grid-cols-3 gap-8 items-stretch mb-8">
@@ -275,12 +288,12 @@
           <div class="mb-6">
             <div>
               <div class="flex items-baseline gap-1">
-                <span class="text-4xl md:text-5xl font-black tracking-tighter text-slate-900">$2.4</span>
-                <span class="text-base font-bold text-slate-500">/ month</span>
+                <span class="text-4xl md:text-5xl font-black tracking-tighter text-slate-900" id="pro-price">$2.4</span>
+                <span class="text-base font-bold text-slate-500" id="pro-period">/ month</span>
               </div>
-              <p class="text-xs font-bold text-emerald-600 mt-1">Billed as $29 / year</p>
+              <p class="text-xs font-bold text-emerald-600 mt-1" id="pro-billing-text">Billed as $29 / year</p>
             </div>
-            <div class="billed-annually-text hidden mt-1">
+            <div class="billed-annually-text hidden mt-1" id="pro-savings">
               <span class="text-xs text-slate-400 font-semibold">billed annually</span>
             </div>
           </div>
