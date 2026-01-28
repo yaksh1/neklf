@@ -10,10 +10,10 @@
   <link rel="icon" type="image/png" href="icons/icon128.png">
   
   <script type="module" crossorigin src="./assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
-  <script type="module" crossorigin src="./assets/navbar-4t1yeHIQ.js"></script>
+  <script type="module" crossorigin src="./assets/navbar-LWtSe7Jp.js"></script>
   <script type="module" crossorigin src="./assets/faqs-uSly5jdm.js"></script>
-  <script type="module" crossorigin src="./assets/landing-CP54HnOT.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/navbar-DYkkfbgX.css">
+  <script type="module" crossorigin src="./assets/landing-F6KNeZd5.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/navbar-D9avUxPP.css">
 </head>
 <body class="bg-[#FDFDFD] text-slate-900 font-sans selection:bg-emerald-600 selection:text-white antialiased">
   <!-- Background Blobs -->
@@ -781,6 +781,37 @@
           <span id="contact-submit-loading" class="hidden">Sending...</span>
         </button>
       </form>
+    </div>
+  </div>
+
+  <!-- Checkout Reminder Modal -->
+  <div id="checkout-modal" class="contact-modal hidden" style="z-index: 60;">
+    <div class="contact-modal-overlay" id="checkout-modal-overlay"></div>
+    <div class="contact-modal-content max-w-md mx-auto p-8 rounded-3xl bg-white relative">
+      <button class="contact-modal-close absolute top-4 right-4 text-slate-400 hover:text-slate-600 transition-colors" id="checkout-modal-close" aria-label="Close">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+      <div class="text-center">
+        <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg class="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+          </svg>
+        </div>
+        <h2 class="text-2xl font-black text-slate-900 mb-4 tracking-tight">Before you continue...</h2>
+        <p class="text-slate-600 mb-8 font-medium leading-relaxed">
+          Please ensure you are logged into the Kortex extension with the email address you want to use for your subscription.
+        </p>
+        <div class="flex flex-col gap-3">
+          <button id="checkout-continue-btn" class="w-full bg-emerald-600 text-white py-3.5 rounded-xl font-black text-lg hover:bg-emerald-700 transition-colors shadow-lg shadow-emerald-200 active:scale-95">
+            Continue to Checkout
+          </button>
+          <button id="checkout-cancel-btn" class="w-full bg-slate-100 text-slate-600 py-3.5 rounded-xl font-bold text-lg hover:bg-slate-200 transition-colors">
+            Cancel
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
