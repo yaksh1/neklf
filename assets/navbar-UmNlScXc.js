@@ -10,6 +10,7 @@
             <a href="${t("features.html")}" class="px-5 py-2 ${e("features.html")} hover:bg-white rounded-full transition-all">Features</a>
             <a href="${t("customer-love.html")}" class="px-5 py-2 ${e("customer-love.html")} hover:bg-white rounded-full transition-all">Customer Love</a>
             <a href="${t("landing.html")}#pricing" class="px-5 py-2 ${r} hover:bg-white rounded-full transition-all">Pricing</a>
+            <a href="${t("affiliate.html")}" class="px-5 py-2 ${e("affiliate.html")} hover:bg-white rounded-full transition-all">Affiliates</a>
             <a href="${t("support.html")}" class="px-5 py-2 ${e("support.html")} hover:bg-white rounded-full transition-all">Help & Support</a>
           </div>
           <div class="flex items-center gap-4">
