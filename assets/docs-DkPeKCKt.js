@@ -1,4 +1,4 @@
-var d=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports);import"./modulepreload-polyfill-B5Qt9EMX.js";import{f as h}from"./faqs-C4W6xD-1.js";var f=d((x,l)=>{function u(){return`
+var d=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports);import"./modulepreload-polyfill-B5Qt9EMX.js";import{f as h}from"./faqs-DhkfoJzG.js";var f=d((x,l)=>{function u(){return`
     <h1>Frequently Asked Questions</h1>
     ${h.map(e=>`
       <h2>${e.question}</h2>
@@ -255,7 +255,7 @@ var d=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports);import"./modulepre
       <ul>
         <li><strong>Documentation</strong>: Check this documentation for answers</li>
         <li><strong>In-App Support</strong>: Click the extension icon → Settings (⚙️) → "Get Support" to submit a support request</li>
-        <li><strong>Email</strong>: yakshgandhi1@gmail.com</li>
+        <li><strong>Email</strong>: kortexnotebooklm@gmail.com</li>
         <li><strong>Chrome Web Store</strong>: Leave a review or contact us through the store</li>
       </ul>
       
