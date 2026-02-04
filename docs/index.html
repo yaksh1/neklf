@@ -7,11 +7,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="icon128.png">
-  <script type="module" crossorigin src="../assets/docs-B2W33hr_.js"></script>
+  <script type="module" crossorigin src="../assets/docs-BYcSYJMX.js"></script>
   <link rel="modulepreload" crossorigin href="../assets/modulepreload-polyfill-B5Qt9EMX.js">
   <link rel="modulepreload" crossorigin href="../assets/faqs-DLWmK525.js">
-  <link rel="stylesheet" crossorigin href="../assets/docs-CvkuGPQ5.css">
+  <link rel="stylesheet" crossorigin href="../assets/docs-nDtp1HzO.css">
 </head>
 <body class="bg-[#FDFDFD] text-slate-900 font-sans selection:bg-emerald-600 selection:text-white antialiased">
   <!-- Background Blobs -->
@@ -29,6 +28,23 @@
           <img id="docs-logo" src="" alt="Kortex" class="w-8 h-8 group-hover:rotate-12 transition-transform" />
           <h1 class="text-2xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-emerald-700 to-cyan-600">KORTEX</h1>
         </a>
+        
+        <!-- Search Bar -->
+        <div class="search-container">
+          <input 
+            type="text" 
+            id="docs-search" 
+            placeholder="Search docs..." 
+            class="search-input"
+          />
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M7 12C9.76142 12 12 9.76142 12 7C12 4.23858 9.76142 2 7 2C4.23858 2 2 4.23858 2 7C2 9.76142 4.23858 12 7 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14 14L10.5 10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        
+        <!-- Search Results Dropdown -->
+        <div id="search-results" class="search-results hidden"></div>
       </div>
       
       <nav class="sidebar-nav">
@@ -39,30 +55,77 @@
         </div>
 
         <div class="nav-section">
-          <div class="nav-title">Features</div>
-          <a href="#" class="nav-link" data-page="export-notebook-sources">Export Notebook Sources</a>
-          <a href="#" class="nav-link" data-page="export-notes">Export Notes and Artifacts</a>
-          <a href="#" class="nav-link" data-page="prompt-holder">Prompt Holder</a>
-          <a href="#" class="nav-link" data-page="import-to-notebooklm">Import to NotebookLM</a>
-          <a href="#" class="nav-link" data-page="export-chat">Export Chat Conversations</a>
-          <a href="#" class="nav-link" data-page="source-views">Source Views</a>
-          <a href="#" class="nav-link" data-page="sync-google-docs">Sync All Google Docs</a>
-          <a href="#" class="nav-link" data-page="smart-search">Smart Search Notebooks</a>
-          <a href="#" class="nav-link" data-page="highlight-snipe">Highlight & Snipe</a>
-          <a href="#" class="nav-link" data-page="delete-sources">Delete Sources</a>
+          <div class="nav-title collapsible">
+            Dashboard Views
+            <span class="collapse-icon">›</span>
+          </div>
+          <div class="nav-links">
+            <a href="#" class="nav-link" data-page="all-notebooks">All Notebooks</a>
+            <a href="#" class="nav-link" data-page="notebook-detail">Notebook Detail</a>
+            <a href="#" class="nav-link" data-page="collections">Collections</a>
+            <a href="#" class="nav-link" data-page="all-sources">All Sources</a>
+            <a href="#" class="nav-link" data-page="all-artifacts">All Artifacts</a>
+            <a href="#" class="nav-link" data-page="merge-notebooks">Merge Notebooks</a>
+            <a href="#" class="nav-link" data-page="prompts-library">Prompts Library</a>
+            <a href="#" class="nav-link" data-page="bulk-import">Bulk Import</a>
+            <a href="#" class="nav-link" data-page="podcasts-view">Podcasts</a>
+          </div>
         </div>
 
         <div class="nav-section">
-          <div class="nav-title">Guides</div>
-          <a href="#" class="nav-link" data-page="understanding-limits">Understanding Feature Limits</a>
-          <a href="#" class="nav-link" data-page="troubleshooting">Troubleshooting</a>
+          <div class="nav-title collapsible">
+            NotebookLM Site Features
+            <span class="collapse-icon">›</span>
+          </div>
+          <div class="nav-links">
+            <a href="#" class="nav-link" data-page="download-all-sources-button">Download All Sources</a>
+            <a href="#" class="nav-link" data-page="sync-all-gdocs-button">Sync All Google Docs</a>
+            <a href="#" class="nav-link" data-page="source-views-dropdown">Source Views Dropdown</a>
+            <a href="#" class="nav-link" data-page="delete-sources-button">Delete Sources</a>
+            <a href="#" class="nav-link" data-page="prompt-holder-button">Prompt Holder</a>
+            <a href="#" class="nav-link" data-page="chat-copy-button">Chat Copy</a>
+            <a href="#" class="nav-link" data-page="chat-export-button">Chat Export</a>
+            <a href="#" class="nav-link" data-page="message-checkboxes">Message Checkboxes</a>
+            <a href="#" class="nav-link" data-page="studio-panel-export">Studio Panel Export</a>
+            <a href="#" class="nav-link" data-page="note-export-button">Note Export</a>
+            <a href="#" class="nav-link" data-page="source-search-bar">Source Search Bar</a>
+            <a href="#" class="nav-link" data-page="notebook-search-bar">Notebook Search Bar</a>
+          </div>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-title collapsible">
+            Automation Rules
+            <span class="collapse-icon">›</span>
+          </div>
+          <div class="nav-links">
+            <a href="#" class="nav-link" data-page="automation-rules">Overview</a>
+            <a href="#" class="nav-link" data-page="automation-smart-sort">Smart Sort</a>
+            <a href="#" class="nav-link" data-page="automation-escalator">The Escalator</a>
+            <a href="#" class="nav-link" data-page="automation-domain-router">Domain Router</a>
+            <a href="#" class="nav-link" data-page="automation-template-engine">Template Engine</a>
+            <a href="#" class="nav-link" data-page="automation-generator">The Generator</a>
+            <a href="#" class="nav-link" data-page="automation-pipeline">The Pipeline</a>
+            <a href="#" class="nav-link" data-page="automation-podcast-curator">Podcast Curator</a>
+            <a href="#" class="nav-link" data-page="automation-cleaner">The Cleaner</a>
+            <a href="#" class="nav-link" data-page="automation-auto-researcher">Auto-Researcher</a>
+          </div>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-title collapsible">
+            Platform Integrations
+            <span class="collapse-icon">›</span>
+          </div>
+          <div class="nav-links">
+            <a href="#" class="nav-link" data-page="platform-integrations">All Platforms</a>
+          </div>
         </div>
 
         <div class="nav-section">
           <div class="nav-title">More</div>
           <a href="#" class="nav-link" data-page="faq">FAQ</a>
           <a href="#" class="nav-link" data-page="support">Support</a>
-          <a href="#" class="nav-link" data-page="roadmap">Roadmap</a>
         </div>
       </nav>
     </aside>
