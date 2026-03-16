@@ -10,10 +10,10 @@
   <link rel="icon" type="image/png" href="icons/icon128.png">
   
   <script type="module" crossorigin src="./assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
-  <script type="module" crossorigin src="./assets/navbar-Vra-SIz8.js"></script>
+  <script type="module" crossorigin src="./assets/navbar-B1JCcIZs.js"></script>
   <script type="module" crossorigin src="./assets/faqs-ONgDkD1M.js"></script>
-  <script type="module" crossorigin src="./assets/landing-DMCl0-Xr.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/navbar-C-KNXUel.css">
+  <script type="module" crossorigin src="./assets/landing-D9pvnM0m.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/navbar-CDID8EVG.css">
 </head>
 <body class="bg-[#FDFDFD] text-slate-900 font-sans selection:bg-emerald-600 selection:text-white antialiased">
   <!-- Background Blobs -->
@@ -747,6 +747,51 @@
             <div class="marquee-item">Dartmouth</div>
             <div class="marquee-item">Spotify</div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Email Capture Section -->
+    <section class="py-20 px-6 relative">
+      <div class="max-w-2xl mx-auto">
+        <div class="bg-white/80 backdrop-blur-md rounded-[2.5rem] border border-slate-200/60 px-10 py-12 text-center shadow-xl shadow-emerald-50/50">
+          <div class="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center border border-emerald-100 mx-auto mb-6">
+            <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-black tracking-tight text-slate-900 mb-3">
+            New features ship weekly.
+          </h2>
+          <p class="text-slate-500 font-semibold mb-8 leading-relaxed">
+            Get early access, NotebookLM tips, and workflow ideas —<br class="hidden md:block"/> before they're public.
+          </p>
+          <form id="email-capture-form" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <input
+              type="email"
+              id="email-capture-input"
+              placeholder="your@email.com"
+              autocomplete="email"
+              required
+              class="flex-1 px-5 py-3.5 rounded-full border border-slate-200 bg-white text-slate-900 font-semibold text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-transparent transition-all"
+            />
+            <button
+              type="submit"
+              id="email-capture-btn"
+              class="bg-emerald-600 text-white px-7 py-3.5 rounded-full font-black text-sm hover:bg-emerald-700 hover:scale-105 transition-all shadow-lg shadow-emerald-200 whitespace-nowrap active:scale-95"
+            >
+              <span id="email-capture-btn-text">Keep me updated</span>
+              <span id="email-capture-btn-loading" class="hidden">Subscribing...</span>
+            </button>
+          </form>
+          <div id="email-capture-success" class="hidden mt-6 flex items-center justify-center gap-2 text-emerald-600 font-bold text-sm">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+            </svg>
+            You're in! We'll be in touch soon.
+          </div>
+          <div id="email-capture-error" class="hidden mt-4 text-red-500 font-semibold text-sm"></div>
+          <p class="text-slate-400 text-xs font-semibold mt-5">No spam. One-click unsubscribe anytime.</p>
         </div>
       </div>
     </section>
