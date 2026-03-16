@@ -10,10 +10,10 @@
   <link rel="icon" type="image/png" href="icons/icon128.png">
   
   <script type="module" crossorigin src="./assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
-  <script type="module" crossorigin src="./assets/navbar-B1JCcIZs.js"></script>
+  <script type="module" crossorigin src="./assets/navbar-DflssKY7.js"></script>
   <script type="module" crossorigin src="./assets/faqs-ONgDkD1M.js"></script>
-  <script type="module" crossorigin src="./assets/landing-D9pvnM0m.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/navbar-CDID8EVG.css">
+  <script type="module" crossorigin src="./assets/landing-9XE7MUpl.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/navbar-DKDTZQ4Y.css">
 </head>
 <body class="bg-[#FDFDFD] text-slate-900 font-sans selection:bg-emerald-600 selection:text-white antialiased">
   <!-- Background Blobs -->
@@ -550,14 +550,22 @@
             <p class="text-xs md:text-sm font-bold text-emerald-600 italic mt-1">Limited time offer.</p>
           </div>
           <div class="mb-6">
-            <div class="flex items-center gap-3 mb-2">
-              <span class="text-lg md:text-xl font-bold text-slate-400 line-through" id="lifetime-cutoff">$150</span>
-              <span class="bg-emerald-500 text-white text-xs font-black px-3 py-1 rounded-full uppercase tracking-wide" id="lifetime-discount">54% OFF</span>
-              <span class="bg-red-500 text-white text-xs font-black px-3 py-1 rounded-full uppercase tracking-wide animate-pulse" id="lifetime-scarcity">Only 9 left</span>
+            <div class="flex items-center gap-3 mb-2 flex-wrap">
+              <span class="text-lg md:text-xl font-bold text-slate-400 line-through" id="lifetime-cutoff">$199</span>
+              <span class="bg-emerald-500 text-white text-xs font-black px-3 py-1 rounded-full uppercase tracking-wide" id="lifetime-discount">50% OFF</span>
+              <span class="bg-red-500 text-white text-xs font-black px-3 py-1 rounded-full uppercase tracking-wide animate-pulse" id="lifetime-scarcity">🔥 Last 13 left</span>
             </div>
             <div class="flex items-baseline gap-1 flex-wrap">
-              <span class="text-3xl md:text-4xl font-black tracking-tighter" id="lifetime-price">$69</span>
+              <span class="text-3xl md:text-4xl font-black tracking-tighter" id="lifetime-price">$99</span>
               <span class="text-sm font-bold text-slate-500" id="lifetime-period">one-time</span>
+            </div>
+            <!-- Countdown Timer -->
+            <div class="mt-3 flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 text-red-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span class="text-xs font-bold text-slate-500">Price increases in</span>
+              <span id="lifetime-countdown" class="text-xs font-black text-red-500 tabular-nums">00:00:00</span>
             </div>
           </div>
           <ul class="space-y-3 mb-8 flex-grow">
